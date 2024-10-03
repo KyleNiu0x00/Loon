@@ -1,6 +1,6 @@
 #!name = Q-Search
 #!desc = 为Safari提供快速切换搜索引擎的能力
-#!author = https://github.com/KyleNiu0x00/
+#!author = @KyleNiu[https://github.com/KyleNiu0x00/]
 #!icon = https://help.apple.com/assets/5E1915E8094622053019F72E/5E1915EB094622053019F735/zh_CN/cef7bad00761d27a6cbf0115106517ba.png
 
 [Rewrite]
