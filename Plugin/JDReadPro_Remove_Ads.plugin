@@ -1,0 +1,11 @@
+#!name=京东读书专业版去广告
+#!desc=为京东读书专业版去开屏广告
+#!author=KyleNiu[https://github.com/KyleNiu0x00]
+#!icon=https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1d/e8/72/1de87266-787d-80bf-33cd-5fc1348f5724/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/230x0w.webp
+
+[Rewrite]
+#京东读书专业版去开屏广告
+^https?:\/\/img[0-9][0-9]\.360buyimg\.com\/ebookadmin\/jfs\/t1\/\d{1,6}\/\d{1,2}\/\d{1,5}\/\d{1,7}\/ - reject
+
+[MITM]
+hostname = *.360buyimg.com
