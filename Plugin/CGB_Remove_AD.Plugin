@@ -1,0 +1,11 @@
+#!name = 发现精彩去广告
+#!desc = 为发现精彩APP去开屏广告
+#!author = @KyleNiu[https://github.com/KyleNiu0x00/]
+#!icon = https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/1f/bc/aa1fbc9c-c88d-15cc-e915-31cb14421f86/AppIcon-1x_U007emarketing-0-6-0-0-85-220-0.png/492x0w.webp
+
+[Rewrite]
+#发现精彩app去开屏广告
+^https?+:\/\/static\.95508\.com\/mmg\/images\/ads\/ - reject
+
+[MITM]
+hostname = static.95508.com
