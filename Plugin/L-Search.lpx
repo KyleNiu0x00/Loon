@@ -140,7 +140,9 @@ request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=jp&.+/i then redirect(307,
 request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=ddg\+([^&]+).+/i as urlMatch then redirect(307, "https://duckduckgo.com/?ia=about&q=${urlMatch.1}")
 
 # 无指令 (Google)
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=([^&]+).+/i as urlMatch then redirect(307, "https://www.google.com/search?q=${urlMatch.1}")
+
+# 无指令: 谷歌
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=(?!(?:gm|gh|wiki|wk|tf|gtc|gte|db|zh|wb|wx|rd|tw|ssp|csdn|zdm|amz|jd|tb|tm|ac|bli|ytb|ph|jb|nf|ma|hp|gd|tgd|bi|b|gq|m|zk|yh|cn|hk|jp|ddg)\+)([^&]+).+/i as urlMatch then redirect(307, "https://www.google.com/search?q=${urlMatch.1}")
 
 [Mitm]
 hostname = duckduckgo.com
