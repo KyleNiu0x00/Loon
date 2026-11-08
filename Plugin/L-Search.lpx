@@ -122,27 +122,25 @@ request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=zk\+([^&]+).+/i as urlMatc
 request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=yh\+([^&]+).+/i as urlMatch then redirect(307, "https://greasyfork.org/zh-CN/scripts?q=${urlMatch.1}")
 
 # cn (切换至中国区)
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=cn&.+/i then redirect(307, "https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143465&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=cn&urlDesc=")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=cn(?:&.*)?$/i then redirect(307, "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143465&cc=cn")
 
 # hk (切换至香港区)
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=hk&.+/i then redirect(307, "https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143463&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=hk&urlDesc=")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=hk(?:&.*)?$/i then redirect(307, "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143463&cc=hk")
 
 # tw (切换至台湾区)
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=tw&.+/i then redirect(307, "https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143470&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=tw&urlDesc=")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=tw(?:&.*)?$/i then redirect(307, "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143470&cc=tw")
 
 # us (切换至美国区)
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=us&.+/i then redirect(307, "https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143441&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=us&urlDesc=")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=us(?:&.*)?$/i then redirect(307, "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143441&cc=us")
 
 # jp (切换至日本区)
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=jp&.+/i then redirect(307, "https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143462&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=jp&urlDesc=")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=jp(?:&.*)?$/i then redirect(307, "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143462&cc=jp")
 
 # ddg (DuckDuckGo)
 request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=ddg\+([^&]+).+/i as urlMatch then redirect(307, "https://duckduckgo.com/?ia=about&q=${urlMatch.1}")
 
-# 无指令 (Google)
-
 # 无指令: 谷歌
-request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=(?!(?:gm|gh|wiki|wk|tf|gtc|gte|db|zh|wb|wx|rd|tw|ssp|csdn|zdm|amz|jd|tb|tm|ac|bli|ytb|ph|jb|nf|ma|hp|gd|tgd|bi|b|gq|m|zk|yh|cn|hk|jp|ddg)\+)([^&]+).+/i as urlMatch then redirect(307, "https://www.google.com/search?q=${urlMatch.1}")
+request if ${url} ~= /^https:\/\/duckduckgo\.com\/\?q=(?!(?:gm|gh|wiki|wk|tf|gtc|gte|db|zh|wb|wx|rd|tw|ssp|csdn|zdm|amz|jd|tb|tm|ac|bli|ytb|ph|jb|nf|ma|hp|gd|tgd|bi|b|gq|m|zk|yh|ddg)\+|(?:cn|hk|tw|us|jp)(?:&|$))([^&]+)(?:&.*)?$/i as urlMatch then redirect(307, "https://www.google.com/search?q=${urlMatch.1}")
 
 [Mitm]
 hostname = duckduckgo.com
